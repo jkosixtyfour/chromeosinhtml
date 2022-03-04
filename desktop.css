@@ -1,0 +1,276 @@
+* {
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.bottom {
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  transition: all 2s ease;
+}
+html {
+    background: url(wall1.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-transition: all 1.5s ease;
+  -moz-transition: all 1.5s ease;
+  -ms-transition: all 1.5s ease;
+  -o-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+}
+
+div.bottom {
+    position:fixed;
+    bottom:0;
+    left:0;
+    height:42px;
+    padding:0;
+    margin:0;
+    margin-bottom:3px;
+    width:100%;
+    opacity:0;
+}
+
+div.bottom div.left {
+    float:left;
+    position:relative;
+}
+
+div.bottom div.notifications {
+    float:right;
+    background:rgba(32,32,32,0.8);
+    border-radius:5px;
+    height:32px;
+    padding:0;
+    margin:0;
+    width:32px;
+    line-height:32px;
+    text-align:center;
+    margin-right:20px;
+    color:white;
+    position:relative;
+    font-size:14pt;
+}
+
+div.bottom div.notifications span {
+    height:32px;
+    width:32px;
+    display:block;
+    border-radius:5px;
+    line-height:32px;
+}
+
+div.bottom div.notifications span:hover {
+    background:rgba(255,255,255,0.1);
+}
+
+div.bottom div.right {
+    float:right;
+    background:rgba(32,32,32,0.8);
+    border-radius:5px;
+    height:32px;
+    padding:0;
+    margin:0;
+    margin-right:10px;
+    color:white;
+    position:relative;
+}
+
+div.bottom div.right span.contentwrap {
+    padding:0;
+    padding-top:0;
+    padding-right:5px;
+    margin:0;
+    margin-right:4px;
+    line-height:32px;
+}
+
+div.bottom div.right span.contentwrap span#clock {
+    height:100%;
+    padding-left:10px;
+    padding-right:10px;
+    display:inline-block;
+}
+
+div.bottom div.right span.contentwrap span#clock:hover {
+    background:rgba(255,255,255,0.1);
+}
+
+div.bottom div.right img.user {
+    float:right;
+    height:100%;
+    width:40px;
+    margin:0;
+    padding:0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+div.bottom div.right span.contentwrap img.icon {
+    float:right;
+    height:100%;
+    width:32px;
+    margin:0;
+    padding:0;
+    margin-right:5px;
+}
+
+div.bottom div.right span.contentwrap img.icon:hover {
+    background:rgba(255,255,255,0.1);
+}
+
+div.bottom div.left img.applaunchericon {
+    height:32px;
+    margin-right:10px;
+    margin-left:5px;
+    padding:3px;
+    position:relative;
+    border-bottom:3px solid transparent;
+}
+
+div.bottom div.left img.applaunchericon:hover {
+    cursor:hand;
+    border-radius:5px;
+    background:blue;
+}
+
+div.bottom div.left img.icon {
+    height:32px;
+    padding-bottom:3px;
+    margin-right:10px;
+    position:relative;
+    border-bottom:3px solid transparent;
+}
+
+div.bottom div.left img.icon:hover {
+    cursor:hand;
+    border-bottom:3px solid white;
+}
+
+div.launcher {
+    position:fixed;
+    left:5px;
+    bottom:50px;
+    height:400px;
+    background:white;
+    -webkit-box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.64);
+    box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.64);
+}
+
+div.launcher form {
+    display:inline;
+}
+
+div.launcher input#search {
+    border:none;
+    border-bottom:1px solid gray;
+    font-size:13pt;
+    padding:10px;
+    width:300px;
+}
+
+input.vertical[type=range]{
+    margin-top:50px;
+    transform: rotate(270deg);
+}
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: silver;
+    width: 100px;
+    height:3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: blue;
+    width: 15px;
+    height: 15px;
+    border-radius:7.5px;
+}
+
+div.volume {
+    position:fixed;
+    background:rgba(255,255,255,0.7);
+    border-radius:5px;
+    padding:10px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:0;
+    bottom:50px;
+    right:64px;
+}
+div.wifi, div.usermenu {
+    position:fixed;
+    background:rgba(255,255,255,0.7);
+    border-radius:5px;
+    padding:10px;
+    padding-top:0;
+    padding-left:0;
+    padding-right:0;
+    bottom:50px;
+    right:10px;
+    width:200px;
+}
+div.wifi h1, div.usermenu h1 {
+    text-align:left;
+    margin-left:10px;
+    font-family:Open Sans Light, DejaVu Sans Light, Segoe UI Light;
+}
+div.wifi div.item, div.usermenu div.item {
+    width:100%;
+    display:block;
+    padding:10px;
+    font-family:Open Sans Light, DejaVu Sans Light, Segoe UI Light;
+    font-size:13pt;
+}
+div.wifi div.item:hover, div.usermenu div.item:hover {
+    background:silver;
+}
+
+#bootScreen {
+  display:block;
+  height:100%;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10000000000;
+  background:white;
+  text-align:center;
+}
+#bootScreen img {
+  position:relative;
+  height:30%;
+  top:50%;
+  transform: 			translateY(-50%);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:auto;
+    margin-bottom:auto;
+    vertical-align: middle;
+}
+
+div.loginScreen {
+    display:none;
+    width:100%;
+    height:100%;
+}
+
+html.login div.loginScreen{
+    z-index:1000000000;
+    display:block !important;
+}
+html.login body div.bottom {
+    display:none !important;
+}
+html.login body div.container {
+    display:none !important;
+}
