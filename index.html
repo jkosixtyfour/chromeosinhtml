@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" class="login">
+<head>
+    <meta charset="UTF-8">
+    <title>Chrome OS in HTML</title>
+    <link rel="stylesheet" href="desktop.css">
+    <link rel="stylesheet" href="WindowCode/windows.css" >
+    <script src="WindowCode/windows.js" ></script>
+    <meta name="Description" CONTENT="A mock-up of Chrome OS made in HTML.">
+    <meta name="author" content="pgpg4822 (original creator), LakeTheImperial (open-sourced)">
+</head>
+<body >
+    <div class="loginScreen">
+        <link rel="stylesheet" href="assets/css/login.css">
+        <div class="wrapper">
+        <div class="card signin-card">
+            <img
+                class="profile-img"
+                src="assets/ui/avatar_2x.png"
+            />
+            <form onsubmit="return false;" autocomplete=off>
+                <select id="user" tabindex="1">
+                    <option value="user" >Chrome OS</option>
+                    </select>
+                <input id="pass" placeholder="Password" type="password" tabindex="2" value=""/>
+                <button type="submit" tabindex="3" class="btn btn-primary" onclick="$('html').removeClass('login');">
+                    Sign in
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="actions-bar">
+        <div class="action action-shutdown" onclick="shutdown();">
+            <i></i> Shut down
+        </div>
+        <div class="action action-reboot" onclick="showBoot();">
+            <i></i> Restart
+        </div>
+        <div id="cclock" class="action action-clock">00:00</div>
+    </div>
+    <script src="assets/js/clock.js"></script>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+       
+    </div>
+<div id=container class=container >
+  <div id="wallpaperwindow" class=window onmousedown='mydragg.startMoving(this,"container",event);high++;this.style.zIndex=high;' onmouseup='mydragg.stopMoving("container");' style="width: 500px;height: 300px;">
+                <div class=title>
+                    Wallpaper
+                    <div class=x onclick="hideWindow('wallpaperwindow')">X</div>
+                </div>
+                <div class=windowtext>
+                    <img src="wall1.jpg" class=wallicon onclick="wallpaper(this.src)">
+                    <img src="wall2.jpg" class=wallicon onclick="wallpaper(this.src)">
+                    <img src="wall3.jpg" class=wallicon onclick="wallpaper(this.src)">
+                    <img src="http://www.hqwalls.com/wp-content/uploads/2012/12/Chrome-OS-hi-res-wallpapers-44.jpg" class=wallicon  onclick="wallpaper(this.src)">
+                </div>
+            </div>
+</div>
+
+    <div class="launcher" id=launcher>
+        <form action="http://www.google.com/search">
+            <input type=search placeholder="Search or type URL" id=search name=q >
+        </form>
+    </div>
+    <div id="volume" class="volume">
+        <input type="range" min=0 max=100 value=10 id=volumectl >
+    </div>
+    <div id="wifi" class="wifi">
+        <h1>Wifi</h1>
+        <div class="item" onClick="toggleWiFi();">Network 1</div>
+        <div class="item" onClick="toggleWiFi();">Network 2</div>
+        <div class="item" onClick="toggleWiFi();">Network 3</div>
+    </div>
+    <div class="usermenu" id="usermenu">
+        <div class="item" onclick="logout()">Sign Out</div>
+    </div>
+    <div class="bottom">
+        <div class="left">
+            <img src="applauncher-icon.png" alt="" class="applaunchericon" onClick="toggleLauncher();">
+            
+            <img src="chrome-icon.png" alt="" class="icon" onclick="newWindow('googlechrome','Google Chrome','http://ddg.gg');" >
+            <img src="gmail-icon.png" alt="" class="icon" onclick="appWindow('http://www.gmail.com')">
+            <img src="docs-icon.png" alt="" class="icon" onclick="appWindow('http://docs.google.com')">
+            <img src="calendar.png" alt="" class="icon" onclick="newWindow('calendar','Calendar','http://chromeosinhtml.neocities.org/window-calendar.html');" >
+        </div>
+        <div class="right">
+            <img class="user" src="user-icon.jpg" alt="" onclick="toggleUserMenu();">
+            
+            <span class="contentwrap">
+                <span id="clock">&nbsp;</span>
+                <img src="battery-icon.png" alt="" class="icon">
+                <img src="wifi-icon.png" alt="" class="icon" onClick="toggleWiFi();">
+                <img src="volume-icon.png" alt="" class="icon" onClick="toggleVolume();">
+            </span>
+        </div>
+        <div class="notifications">
+            <span>
+                0
+            </span>
+        </div>
+    </div>
+    <div id=bootScreen >
+      <img src="chrome.png" >
+    </div>
+</body>
+
+<script type="text/javascript">
+function updateClock (){
+  var currentTime = new Date ( );
+
+  //Get the hours for updating clock
+  var currentHours = currentTime.getHours ();
+  
+  //Get the minuts for updating clock
+  var currentMinutes = currentTime.getMinutes ();
+  
+  //Get the secconds for updating clock
+  var currentSeconds = currentTime.getSeconds ();
+
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+  // Choose either "AM" or "PM" as appropriate
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  // Convert the hours component to 12-hour format if needed
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  // Convert an hours component of "0" to "12"
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+  // Compose the string for display
+  var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+
+  // Update the time display
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+}
+function toggledisplay(elementID)
+    {
+        (function(style) {
+            style.display = style.display === 'none' ? '' : 'none';
+        })(document.getElementById(elementID).style);
+    }
+function toggleLauncher() {
+    toggledisplay("launcher");
+    document.getElementById("search").focus();
+}
+function toggleVolume() {
+    toggledisplay("volume");
+}
+function toggleUserMenu() {
+    toggledisplay("usermenu");
+}
+function toggleWiFi() {
+    toggledisplay("wifi");
+}
+function app(url) {
+    window.open(url, "_blank");
+}
+function appWindow(url) {
+    window.open(url, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes");
+}
+function hideBoot(){
+  document.getElementById('bootScreen').style.display="none";
+}
+function showBoot(){
+document.getElementById('bootScreen').style.display="block";
+setTimeout(function() { hideBoot(); }, 3000);
+}
+function shutdown(){
+    document.getElementById('bootScreen').style.display="block";
+    setTimeout(function() { location="https://mirulstartpage.neocities.org/"; }, 2000);
+}
+function logout(){
+    $('html').addClass('login');
+}
+toggleLauncher();
+toggleVolume();
+toggleWiFi();
+toggleUserMenu();
+updateClock(); setInterval('updateClock()', 1000 );
+setTimeout(function() { hideBoot(); }, 3000);
+newWindow('MySite','Home','https://mirulstartpage.neocities.org/');
+
+</script>
+<style>
+  div.bottom {
+    opacity:1;
+  }
+</style>
+</html>
